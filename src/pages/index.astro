@@ -1,17 +1,315 @@
 ---
-
+import '../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/images/lybi-favicon.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="/images/lybi-favicon.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/images/lybi-favicon.png" sizes="64x64" />
+		<link rel="manifest" href="/favicon/site.webmanifest">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Lybi | Solución digital</title>
+		    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --primary: #6366f1;
+            --secondary: #06b6d4;
+            --vibrant-purple: #a855f7;
+            --bg-lavender: #fcfaff;
+            --bg-blue-tint: #f8fbff;
+            --charcoal: #0f172a;
+            --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-lavender);
+            color: var(--charcoal);
+        }
+        .grayscale-to-color {
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .grayscale-to-color:hover {
+            filter: grayscale(0%) saturate(1.5);
+        }
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            border-color: var(--vibrant-purple);
+            box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.15);
+            transform: translateY(-4px);
+        }
+        .hero-gradient-path {
+            stroke: url(#hero-gradient);
+            stroke-width: 1.5;
+            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+        }
+        .btn-gradient {
+            background: var(--gradient-main);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+        }
+        .accent-text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366f1",
+                        "secondary": "#06b6d4",
+                        "charcoal": "#0f172a",
+                        "vibrant-purple": "#a855f7",
+                    },
+                    fontFamily: {
+                        "sans": ["Plus Jakarta Sans", "sans-serif"],
+                    }
+                },
+            },
+        }
+    </script>
 	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+	<body class="selection:bg-primary selection:text-white antialiased">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-indigo-100">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+					<img src="/public/images/lybi-logo.png" alt="Lybi Logo" class="h-40"/>
+                </div>
+                <nav class="hidden md:flex items-center gap-10">
+                    <a class="text-[11px] uppercase tracking-[0.25em] font-bold text-slate-600 hover:text-primary transition-colors"
+                        href="#services">Servicios</a>
+                    <a class="text-[11px] uppercase tracking-[0.25em] font-bold text-slate-600 hover:text-primary transition-colors"
+                        href="#portfolio">Proyectos</a>
+                    <a class="text-[11px] uppercase tracking-[0.25em] font-bold text-slate-600 hover:text-primary transition-colors"
+                        href="#contact">Contacto</a>
+                </nav>
+                <button
+                    class="btn-gradient text-[11px] uppercase tracking-[0.25em] font-extrabold text-white px-8 py-3.5 rounded-full">
+                    Comenzar Proyecto
+                </button>
+            </div>
+        </header>
+        <main class="pt-20">
+            <section class="relative min-h-[95vh] flex items-center px-6 md:px-12 py-20 max-w-[1400px] mx-auto">
+                <div class="z-10 flex flex-col gap-10 max-w-[850px]">
+                    <div class="flex items-start">
+                        <div class="h-[2px] w-16 bg-gradient-to-r from-primary to-secondary"></div>
+                        <span class="text-xs uppercase tracking-[0.4em] font-bold text-primary">Desarrollo de sitios y aplicaciones Web</span>
+                    </div>
+                    <h1 class="text-6xl md:text-[7.5rem] font-extrabold leading-[0.85] tracking-tight text-charcoal">
+                        Soluciones <br /><span class="accent-text-gradient">Digitales</span> <br />a medida.
+                    </h1>
+                    <p class="text-lg md:text-2xl text-slate-500 max-w-[600px] leading-relaxed font-medium">
+                        Somos un equipo especializado en el desarrollo de sistemas web, software y páginas web de alto rendimiento, diseñadas para crecer contigo.
+                    </p>
+                    <div class="mt-4 flex gap-6 items-center">
+                        <button
+                            class="btn-gradient px-12 py-6 text-white text-xs uppercase tracking-[0.3em] font-extrabold rounded-sm">
+                            Proyectos destacados
+                        </button>
+                        <a class="text-xs uppercase tracking-[0.3em] font-bold border-b-2 border-secondary/20 hover:border-secondary pb-2 transition-all text-secondary"
+                            href="#services">Servicios</a>
+                    </div>
+                </div>
+                <div
+                    class="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/5 h-full flex items-center justify-center opacity-40 pointer-events-none">
+                    <svg class="w-full h-auto max-w-[800px]" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="hero-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                                <stop offset="0%" stop-color="#6366f1"></stop>
+                                <stop offset="100%" stop-color="#a855f7"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g fill="none">
+                            <circle class="hero-gradient-path" cx="200" cy="200" opacity="0.3" r="160"></circle>
+                            <path class="hero-gradient-path" d="M50,200 L350,200 M200,50 L200,350"></path>
+                            <path class="hero-gradient-path" d="M100,100 L300,300 M300,100 L100,300"></path>
+                            <rect class="hero-gradient-path" height="120" rx="8" width="120" x="140" y="140"></rect>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <section class="py-32 px-6 md:px-12 bg-[var(--bg-blue-tint)] border-t border-indigo-50" id="services">
+                <div class="max-w-[1400px] mx-auto">
+                    <div class="flex flex-col gap-4 mb-20">
+                        <span class="text-xs uppercase tracking-[0.4em] font-bold text-secondary">Nuestros servicios</span>
+                        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter">Soluciones a la medida.</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="service-card bg-white border border-slate-100 p-12 group rounded-2xl">
+                            <div class="mb-10 text-primary group-hover:text-vibrant-purple transition-colors">
+                                <span class="material-symbols-outlined text-6xl">terminal</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 uppercase tracking-tight">Aplicaciones Web</h3>
+                            <p class="text-slate-500 leading-relaxed text-lg mb-8 font-normal">
+                                Desarrollamos sistemas web de alto rendimiento y gran escalabilidad, utilizando tecnologías modernas. Creamos soluciones capaces de manejar lógica compleja, integraciones en tiempo real y arquitecturas personalizadas en la nube.
+                            </p>
+                            <ul
+                                class="flex flex-wrap gap-x-6 gap-y-2 text-[10px] uppercase tracking-widest font-extrabold text-indigo-400">
+                                <li><span class="text-secondary">•</span> Cloud Architecture</li>
+                                <li><span class="text-secondary">•</span> API Integration</li>
+                                <li><span class="text-secondary">•</span> Real-time Systems</li>
+                            </ul>
+                        </div>
+                        <div class="service-card bg-white border border-slate-100 p-12 group rounded-2xl">
+                            <div class="mb-10 text-secondary group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-6xl">web_asset</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 uppercase tracking-tight">Paginas Web</h3>
+                            <p class="text-slate-500 leading-relaxed text-lg mb-8 font-normal">
+                                Creamos páginas web rápidas, funcionales y visualmente claras, pensadas para ofrecer una experiencia sólida y convertir visitas en oportunidades.
+                            </p>
+                            <ul
+                                class="flex flex-wrap gap-x-6 gap-y-2 text-[10px] uppercase tracking-widest font-extrabold text-indigo-400">
+                                <li><span class="text-primary">•</span> Editorial Design</li>
+                                <li><span class="text-primary">•</span> Conversion Engine</li>
+                                <li><span class="text-primary">•</span> Performance SEO</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-charcoal" id="portfolio">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="group relative overflow-hidden aspect-[16/10] md:h-[85vh] border-r border-white/5">
+                        <div class="absolute inset-0 grayscale-to-color bg-cover bg-center"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC36U6SFvFJ3LfaYNA5KRUCCvbAkK8BvHZYQcIggandD7fb5gXl-Q6JQF04LGbBeB9fBSNCZn0wP7TLmQJrlxgcXyJH5DLYuuRGdMJ3aA8uPIKUAccbv77owYFN7Ca9WBuHEb_SgpjTgsYXemKcuUOvgIuckO7Y4yS7EdugwIPXWBtQ9qG4sfKKv_Qglo58xygcydQEdmIjl1WUJbSccqg5lOwvjaH7y3kc1h6m0t9yHzfHu0vVocu6GfE-8HcLFmCgAM9HmNjdGiM");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-indigo-900/20 group-hover:bg-transparent transition-all duration-700 pointer-events-none">
+                        </div>
+                        <div class="absolute bottom-12 left-12 z-20">
+                            <span class="text-xs uppercase tracking-[0.4em] font-bold text-cyan-400 mb-3 block">Fintech
+                                Core</span>
+                            <h4 class="text-4xl font-extrabold text-white tracking-tighter">Project: Horizon</h4>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden aspect-[16/10] md:h-[85vh]">
+                        <div class="absolute inset-0 grayscale-to-color bg-cover bg-center"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChB8N5kGmC3v6TbFiwuNd5BUHDi78sQCHTMkc5gI2RlGAHXFnwRiVtbB3a51B7_wEdZa0rPcX-7Ui22TcVcpD_tImI-ctSfiXCNKYRiWhmvISlorsVQnXHEjOQuxvB62KtycTkX1mPd1O6IM9LPPBcg9q7kN_EnAIRmh2PwArYgKg0UJz-CpH0KFW1_9tjfXMmKrOGi_NmX6NrIuYqPkdSjL14v9D_vtM3W14BVf2r05caRSsI5Ugb6lUFTugaMw2iWPtU5UdVdM8");'>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-all duration-700 pointer-events-none">
+                        </div>
+                        <div class="absolute bottom-12 left-12 z-20">
+                            <span class="text-xs uppercase tracking-[0.4em] font-bold text-purple-400 mb-3 block">Global
+                                Logistics</span>
+                            <h4 class="text-4xl font-extrabold text-white tracking-tighter">Project: Nexus</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-32 px-6 md:px-12 bg-white" id="contact">
+                <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
+                    <div class="flex flex-col justify-between">
+                        <div class="max-w-[500px]">
+                            <span class="text-xs uppercase tracking-[0.4em] font-bold text-primary block mb-6">
+                                Contacto</span>
+                            <h2
+                                class="text-5xl md:text-7xl font-extrabold text-charcoal tracking-tighter mb-10 leading-tight">
+                                Start a new <br />project inquiry.</h2>
+                            <p class="text-lg text-slate-500 font-medium mb-12">
+                                Ready to discuss your next technical challenge? We provide specialized engineering for
+                                ambitious web projects.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-8">
+                            <div>
+                                <p class="text-[10px] uppercase tracking-[0.3em] font-extrabold text-indigo-300 mb-2">
+                                    Nuestro Correo Electrónico</p>
+                                <a class="text-2xl font-bold text-charcoal hover:text-primary transition-colors border-b-2 border-indigo-50 hover:border-primary"
+                                    href="mailto:hello@studiodev.tech">hello@studiodev.tech</a>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-[0.3em] font-extrabold text-indigo-300 mb-2">
+                                    Location</p>
+                                <p class="text-2xl font-bold">San Francisco, California</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--bg-lavender)] p-10 md:p-16 rounded-3xl border border-indigo-50">
+                        <form class="flex flex-col gap-10">
+                            <div class="border-b border-indigo-100 pb-4">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-indigo-400 block mb-2">
+                                    Nombre</label>
+                                <input
+                                    class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-xl font-bold placeholder:text-slate-300"
+                                    placeholder="John Doe" type="text" />
+                            </div>
+                            <div class="border-b border-indigo-100 pb-4">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-indigo-400 block mb-2">
+                                    Correo Electronico</label>
+                                <input
+                                    class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-xl font-bold placeholder:text-slate-300"
+                                    placeholder="john@company.com" type="email" />
+                            </div>
+                            <div class="border-b border-indigo-100 pb-4">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-indigo-400 block mb-2">
+                                    Tipo de Servicio</label>
+                                <select
+                                    class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-xl font-bold appearance-none cursor-pointer">
+                                    <option>Aplicación Web</option>
+                                    <option>Sitio Web</option>
+                                </select>
+                            </div>
+                            <div class="border-b border-indigo-100 pb-4">
+                                <label
+                                    class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-indigo-400 block mb-2">Mensaje</label>
+                                <textarea
+                                    class="w-full bg-transparent border-none focus:ring-0 px-0 py-2 text-xl font-bold placeholder:text-slate-300 min-h-[100px] resize-none"
+                                    placeholder="Cuentanos sobre tu proyecto"></textarea>
+                            </div>
+                            <button
+                                class="btn-gradient w-full py-6 text-white text-[11px] uppercase tracking-[0.4em] font-black rounded-xl">
+                                Enviar Consulta
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="py-16 bg-[var(--bg-lavender)] border-t border-indigo-50 px-6 md:px-12">
+            <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="flex items-center gap-3">
+                    <div class="size-6 bg-primary rounded-md"></div>
+                    <span class="text-sm font-black uppercase tracking-widest text-charcoal">Lybi · Web & Software</span>
+                </div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">
+                    © 2025 Lybi Web & Software Solutions. Todos los derechos reservados.
+                </div>
+                <div class="flex items-center gap-10">
+                    <a class="text-slate-600 hover:text-primary transition-colors text-[10px] uppercase tracking-[0.2em] font-extrabold"
+                        href="#">Facebook</a>
+                    <a class="text-slate-600 hover:text-secondary transition-colors text-[10px] uppercase tracking-[0.2em] font-extrabold"
+                        href="#">Instagram</a>
+                    <a class="text-slate-600 hover:text-vibrant-purple transition-colors text-[10px] uppercase tracking-[0.2em] font-extrabold"
+                        href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
 </html>
