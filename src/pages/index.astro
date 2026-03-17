@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import { Font } from "astro:assets";
+import mainPhoto from "@images/main-photo.png";
+import { Image } from "astro:assets";
 ---
 
 <html lang="es">
@@ -10,20 +12,86 @@ import { Font } from "astro:assets";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Lybi</title>
-        <Font cssVariable="--font-nico" preload/>
-        <Font cssVariable="--font-nunito" preload/>
+        <Font cssVariable="--font-nico" preload />
+        <Font cssVariable="--font-nunito" preload />
     </head>
     <body class="bg-primary">
-        <nav>
-            <div>
-                <a href="/" class="font-nico text-white text-4xl">LYBI</a>
+        <div
+            class="absolute
+                top-[-50px]
+                sm:top-[-100px]
+                md:top-[-200px]
+                lg:top-[-450px]
+                left-[100px]
+                w-[50vw]
+                h-[50vw]
+                bg-white
+                rounded-full
+                blur-[200px]
+                opacity-25
+                lg:opacity-20
+                -z-10"
+        >
+        </div>
+        <header class="relative h-screen">
+            <div
+                class="absolute inset-0 -z-10
+                [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]
+                [-webkit-mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"
+            >
+                <Image
+                    src={mainPhoto}
+                    alt="Main Photo"
+                    class="w-full h-full object-cover
+                        brightness-15
+                        grayscale-70
+                        saturate-20
+                        opacity-70"
+                />
             </div>
-            <div>
-                <ul>
-                    <li><a href="/quienes-somos" class="font-nunito text-white text-1xl">QUIENES SOMOS</a></li>
-                    <li><a href="/proyectos" class="font-nunito text-white text-1xl">PROYECTOS</a></li>
-                </ul>
+
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+                <div class="text-white">
+                    <h1 class="font-nico text-6xl md:text-8xl text-center [text-shadow:10px_10px_20px_rgba(0,0,0,0.5)]">
+                        LYBI
+                    </h1>
+
+                    <p class="font-nunito text-xs md:text-sm text-right mt-2 translate-x-15 text-[#A2A2A2] [text-shadow:10px_10px_20px_rgba(0,0,0,0.5)]">
+                        Desarrollo de software
+                    </p>
+                </div>
             </div>
-        </nav>
+
+            <nav class="px-15 py-3 flex justify-between items-center">
+                <div>
+                    <a href="/" class="font-nico text-white text-3xl">LYBI</a>
+                </div>
+                <div>
+                    <ul class="flex gap-6">
+                        <li>
+                            <a
+                                href="/quienes-somos"
+                                class="font-nunito text-white text-sm"
+                                >QUIENES SOMOS</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/proyectos"
+                                class="font-nunito text-white text-sm"
+                                >PROYECTOS</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="/contacto"
+                                class="font-nunito text-white text-sm"
+                                >CONTACTO</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
     </body>
 </html>
