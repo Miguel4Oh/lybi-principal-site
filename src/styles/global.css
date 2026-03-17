@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@theme inline {
+    --font-nico: var(--font-nico);
+    --font-nunito: var(--font-nunito);
+}
+@theme {
+  --color-primary: #1B1C1F;   
+}
