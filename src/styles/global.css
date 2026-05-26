@@ -4,5 +4,112 @@
     --font-nunito: var(--font-nunito);
 }
 @theme {
-  --color-primary: #1B1C1F;   
+    --color-primary: #1b1c1f;
+}
+
+.swiper {
+    height: 400px;
+}
+
+.swiper-slide {
+    height: 100%;
+    border-radius: 15px;
+    opacity: 0.3;
+    filter: blur(0.1px);
+    overflow: hidden;
+    transform-origin: bottom;
+
+    position: relative;
+    transform-origin: bottom;
+}
+
+.swiper-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.55) 35%,
+        rgba(0, 0, 0, 0.2) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    pointer-events: none;
+}
+
+.slide-media {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+}
+
+.slide-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.slide-caption {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1px; /* o use `top: 1rem;` para que aparezca arriba */
+    z-index: 2;
+    color: #fff;
+    font-family: var(--font-nico);
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 2rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.swiper-slide-active {
+    opacity: 0.8;
+    filter: blur(0);
+}
+
+.masked-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+
+    z-index: 1;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 45%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
 }
