@@ -19,13 +19,17 @@ import { Font } from "astro:assets";
     <body
         class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container"
     >
+        <div id="top"></div>
         <!-- Header / TopNavBar - Updated to be smaller, pill-shaped, and less wide -->
         <header
-            class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full w-[90%] max-w-[1200px] z-50 bg-primary dark:bg-primary-container border border-outline/20 shadow-lg flex justify-between items-center px-8 py-2.5 origin-top transform-gpu transition-[top,width,max-width,border-radius,padding] duration-300 ease-in-out"
+            class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full w-[90%] max-w-[1200px] z-50 bg-primary dark:bg-primary-container border border-outline/20 shadow-lg flex justify-between items-center px-8 py-2.5 origin-top transform-gpu transition-all duration-300 ease-in-out"
         >
-            <div class="font-nico text-xl text-on-primary tracking-tighter">
+            <a
+                class="font-nico text-xl text-on-primary tracking-tighter"
+                href="#top"
+            >
                 LYBI
-            </div>
+            </a>
             <nav class="hidden md:flex gap-12 items-center">
                 <a
                     class="font-label-sm text-[14px] text-on-primary border-b border-on-primary pb-0.5 transition-all hover:opacity-90"
@@ -561,6 +565,10 @@ import { Font } from "astro:assets";
                     return;
                 }
 
+                let compactTimer:
+                    | ReturnType<typeof window.setTimeout>
+                    | undefined;
+
                 const compactClasses = [
                     "top-6",
                     "rounded-full",
@@ -590,8 +598,19 @@ import { Font } from "astro:assets";
                 };
 
                 const syncHeaderSpacing = () => {
+                    if (compactTimer !== undefined) {
+                        window.clearTimeout(compactTimer);
+                        compactTimer = undefined;
+                    }
+
                     if (window.scrollY === 0) {
-                        setCompactHeader();
+                        compactTimer = window.setTimeout(() => {
+                            if (window.scrollY === 0) {
+                                setCompactHeader();
+                            }
+
+                            compactTimer = undefined;
+                        }, 160);
                     } else {
                         setExpandedHeader();
                     }

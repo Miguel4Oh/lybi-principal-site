@@ -106,6 +106,9 @@ body {
     background-color: #f5f5f5;
     color: #1c1b1c;
 }
+html {
+    scroll-behavior: smooth;
+}
 .material-symbols-outlined {
     font-variation-settings:
         "FILL" 0,
